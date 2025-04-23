@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="mb-4">Your Personalized Book Recommendations</h2>
+
+<div class="row">
+    {% for book in books %}
+    <div class="col-md-6 mb-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">{{ book.title }}</h5>
+                <div class="d-flex justify-content-between mb-2">
+                    <span class="badge bg-primary">Match: {{ book.score }}</span>
+                    <span class="badge bg-success">${{ book.price }}</span>
+                    <span class="badge bg-info">Year: {{ book.year }}</span>
+                </div>
+                <p class="card-text"><strong>Genres:</strong> {{ book.genres }}</p>
+            </div>
+            <div class="card-footer bg-transparent">
+                <button class="btn btn-sm btn-outline-primary">More Details</button>
+                <button class="btn btn-sm btn-outline-success">Save to List</button>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="text-center mt-4">
+    <a href="{{ url_for('new_user') }}" class="btn btn-secondary">Start Over as New User</a>
+    <a href="{{ url_for('index') }}" class="btn btn-primary">Return Home</a>
+</div>
+{% endblock %}

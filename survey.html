@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header bg-primary text-white">
+        <h2>Reading Preferences Survey</h2>
+    </div>
+    <div class="card-body">
+        <form method="POST" action="{{ url_for('survey') }}">
+            {% for i, question in enumerate(questions) %}
+            <div class="mb-3">
+                <label for="q{{ i }}" class="form-label">{{ question }}</label>
+                <select class="form-select" id="q{{ i }}" name="q{{ i }}" required>
+                    <option value="1">1 - Not at all</option>
+                    <option value="2">2</option>
+                    <option value="3" selected>3 - Neutral</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very much</option>
+                </select>
+            </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary">Get Recommendations</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
