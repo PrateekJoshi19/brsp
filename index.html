@@ -1,36 +1,140 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="jumbotron text-center">
-    <h1 class="display-4">Welcome to BookRec</h1>
-    <p class="lead">Your personalized book recommendation system</p>
-    <hr class="my-4">
-    <p>Discover books tailored to your preferences by taking our quick survey.</p>
-    <a class="btn btn-primary btn-lg" href="{{ url_for('survey') }}" role="button">Start Survey</a>
+<!-- Hero Section with Animation -->
+<div class="hero-section text-center py-5 mb-5">
+    <div class="container">
+        <h1 class="display-4 fw-bold mb-4 animate__animated animate__fadeInDown">Welcome to <span class="text-primary">BookRec</span></h1>
+        <p class="lead mb-4 animate__animated animate__fadeIn animate__delay-1s">Your personalized book recommendation system</p>
+        <div class="d-flex justify-content-center animate__animated animate__fadeIn animate__delay-2s">
+            <a href="{{ url_for('survey') }}" class="btn btn-primary btn-lg px-4 me-3 pulse-hover">
+                <i class="bi bi-book me-2"></i>Start Survey
+            </a>
+            <a href="#how-it-works" class="btn btn-outline-primary btn-lg px-4">
+                <i class="bi bi-info-circle me-2"></i>Learn More
+            </a>
+        </div>
+    </div>
 </div>
 
-<div class="row mt-5">
-    <div class="col-md-6">
-        <h3>How It Works</h3>
-        <ol class="list-group list-group-numbered">
-            <li class="list-group-item">Complete our short reading preferences survey</li>
-            <li class="list-group-item">Our algorithm analyzes your responses</li>
-            <li class="list-group-item">Get personalized book recommendations</li>
-        </ol>
-    </div>
-    <div class="col-md-6">
-        <h3>About Our System</h3>
-        <div class="card">
-            <div class="card-body">
-                <p>Our recommendation system uses machine learning to match you with books you'll love based on:</p>
-                <ul>
-                    <li>Your genre preferences</li>
-                    <li>Reading habits</li>
-                    <li>Book characteristics</li>
-                    <li>And more!</li>
-                </ul>
+<!-- Features Grid -->
+<div class="container mb-5">
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="feature-card h-100 p-4 rounded-4 shadow-sm hover-effect">
+                <div class="feature-icon mb-3">
+                    <i class="bi bi-search-heart fs-1 text-primary"></i>
+                </div>
+                <h3>Smart Matching</h3>
+                <p>Our AI finds books that match your unique reading preferences and habits.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="feature-card h-100 p-4 rounded-4 shadow-sm hover-effect">
+                <div class="feature-icon mb-3">
+                    <i class="bi bi-collection fs-1 text-primary"></i>
+                </div>
+                <h3>Diverse Selection</h3>
+                <p>Discover books from all genres, from bestsellers to hidden gems.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="feature-card h-100 p-4 rounded-4 shadow-sm hover-effect">
+                <div class="feature-icon mb-3">
+                    <i class="bi bi-graph-up fs-1 text-primary"></i>
+                </div>
+                <h3>Constantly Improving</h3>
+                <p>The more you use it, the better your recommendations become.</p>
             </div>
         </div>
     </div>
 </div>
+
+<!-- How It Works Section -->
+<div id="how-it-works" class="container py-5 my-5">
+    <h2 class="text-center mb-5 section-title">How It Works</h2>
+    <div class="row g-4">
+        <div class="col-lg-4">
+            <div class="step-card text-center p-4">
+                <div class="step-number">1</div>
+                <i class="bi bi-pencil-square step-icon"></i>
+                <h3 class="my-3">Complete Survey</h3>
+                <p>Answer a few quick questions about your reading preferences and habits.</p>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="step-card text-center p-4">
+                <div class="step-number">2</div>
+                <i class="bi bi-cpu step-icon"></i>
+                <h3 class="my-3">AI Analysis</h3>
+                <p>Our algorithm processes your responses to understand your unique tastes.</p>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="step-card text-center p-4">
+                <div class="step-number">3</div>
+                <i class="bi bi-bookmarks step-icon"></i>
+                <h3 class="my-3">Get Recommendations</h3>
+                <p>Receive personalized book suggestions tailored just for you.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Testimonials Carousel -->
+<div class="bg-light py-5">
+    <div class="container">
+        <h2 class="text-center mb-5 section-title">What Readers Say</h2>
+        <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="testimonial text-center p-4">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" class="rounded-circle mb-3" width="80" alt="User">
+                        <p class="mb-3">"BookRec helped me discover my new favorite author! The recommendations were spot on."</p>
+                        <h5 class="mb-1">Sarah Johnson</h5>
+                        <div class="text-warning">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="testimonial text-center p-4">
+                        <img src="https://randomuser.me/api/portraits/men/45.jpg" class="rounded-circle mb-3" width="80" alt="User">
+                        <p class="mb-3">"I've read more in the past month than in the last year thanks to these recommendations."</p>
+                        <h5 class="mb-1">Michael Chen</h5>
+                        <div class="text-warning">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-half"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Call to Action -->
+<div class="container my-5 py-5 text-center">
+    <h2 class="mb-4">Ready to Discover Your Next Favorite Book?</h2>
+    <p class="lead mb-5">Join thousands of readers who found their perfect match</p>
+    <a href="{{ url_for('survey') }}" class="btn btn-primary btn-lg px-5 py-3">
+        Get Started Now <i class="bi bi-arrow-right ms-2"></i>
+    </a>
+</div>
+
 {% endblock %}
